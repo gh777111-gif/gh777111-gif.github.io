@@ -366,6 +366,11 @@
     <script>
         (function () {
 
+            var TIMER_VERSION = '8days-v1';
+            var STORAGE_KEY = 'phuongGiftTimer';
+            var VERSION_KEY = 'phuongGiftTimerVersion';
+            var EIGHT_DAYS_MS = 8 * 24 * 60 * 60 * 1000;
+
             var PHRASES = [
                 "Hôm nay sao chiếu mệnh tốt, tình cảm và công việc đều thuận lợi. Hãy mỉm cười và tin vào những điều tốt đẹp.",
                 "Ngày hôm nay mang đến năng lượng tích cực. Những người thương yêu sẽ ở bên bạn. Cứ thoải mái và vui vẻ.",
@@ -398,8 +403,7 @@
             }
 
             function getTodayPhrase() {
-                var idx = getDayIndex() % PHRASES.length;
-                return PHRASES[idx];
+                return PHRASES[getDayIndex() % PHRASES.length];
             }
 
             function createHearts() {
@@ -417,21 +421,22 @@
                 }, 500);
             }
 
-            var STORAGE_KEY = 'phuongGiftTimer';
-            var EIGHT_DAYS_MS = 8 * 24 * 60 * 60 * 1000;
-
             function startCountdown() {
+                var savedVersion = localStorage.getItem(VERSION_KEY);
                 var endTime = localStorage.getItem(STORAGE_KEY);
-                if (!endTime) {
-                    endTime = Date.now() + EIGHT_DAYS_MS;
+
+                if (savedVersion !== TIMER_VERSION || !endTime) {
+                    endTime = String(Date.now() + EIGHT_DAYS_MS);
                     localStorage.setItem(STORAGE_KEY, endTime);
+                    localStorage.setItem(VERSION_KEY, TIMER_VERSION);
                 }
+
                 endTime = parseInt(endTime, 10);
 
                 var countdownEl = document.getElementById('countdown');
                 var finalMsg = document.getElementById('final-message');
 
-                var tick = function () {
+                function tick() {
                     var now = Date.now();
                     var left = endTime - now;
 
@@ -450,7 +455,7 @@
                     document.getElementById('hours').textContent = h < 10 ? '0' + h : h;
                     document.getElementById('minutes').textContent = m < 10 ? '0' + m : m;
                     document.getElementById('seconds').textContent = s < 10 ? '0' + s : s;
-                };
+                }
 
                 tick();
                 setInterval(tick, 1000);
