@@ -4,155 +4,180 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dành cho Phương 💖</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-gradient: linear-gradient(135deg, #fff0f5 0%, #fff5e6 100%);
+            --bg-start: #fff0f5;
+            --bg-end: #ffe4ec;
             --text-color: #5d4037;
-            --accent-pink: #ff8fa3;
+            --accent-pink: #e91e63;
+            --accent-rose: #f8bbd9;
             --heart-color: #ff6b6b;
-            --horse-color: #fdf5e6;
-            --horse-mane: #d2b48c;
-            --tiger-color: #ffdab9;
-            --tiger-stripe: #8d6e63;
+            --glass-bg: rgba(255, 255, 255, 0.5);
+            --glass-border: rgba(255, 255, 255, 0.7);
+            --gold: #d4a574;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            background: var(--bg-gradient);
             font-family: 'Nunito', sans-serif;
             color: var(--text-color);
             min-height: 100vh;
+            background: linear-gradient(135deg, var(--bg-start) 0%, #ffe4ec 50%, var(--bg-end) 100%);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            overflow: hidden; /* Prevent scrollbars from floating hearts */
+            overflow: hidden;
             position: relative;
         }
 
-        /* --- Floating Background Hearts --- */
         .bg-hearts {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            inset: 0;
             pointer-events: none;
             z-index: 0;
         }
 
         .bg-heart {
             position: absolute;
-            color: rgba(255, 182, 193, 0.4);
-            font-size: 20px;
+            color: rgba(233, 30, 99, 0.35);
+            font-size: 22px;
             animation: floatUp linear infinite;
         }
 
         @keyframes floatUp {
             0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
-            20% { opacity: 0.8; }
-            100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+            15% { opacity: 0.8; }
+            100% { transform: translateY(-10vh) scale(1.1); opacity: 0; }
         }
 
-        /* --- Main Container --- */
         .container {
             position: relative;
             z-index: 10;
             text-align: center;
-            padding: 20px;
-            max-width: 600px;
+            padding: 28px;
+            max-width: 560px;
             width: 90%;
-            background: rgba(255, 255, 255, 0.4);
-            backdrop-filter: blur(5px);
-            border-radius: 30px;
-            border: 2px solid rgba(255, 255, 255, 0.6);
-            box-shadow: 0 10px 30px rgba(255, 182, 193, 0.2);
-            margin-bottom: 20px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            border-radius: 28px;
+            border: 2px solid var(--glass-border);
+            box-shadow: 0 12px 40px rgba(233, 30, 99, 0.15), inset 0 1px 0 rgba(255,255,255,0.8);
         }
 
         h1 {
-            font-family: 'Pacifico', cursive;
-            font-size: 2.5rem;
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.6rem;
             color: var(--accent-pink);
             margin-bottom: 20px;
-            text-shadow: 2px 2px 0px white;
+            text-shadow: 2px 2px 0 rgba(255,255,255,0.8);
         }
 
-        /* --- Countdown --- */
         .countdown-box {
             display: flex;
             justify-content: center;
-            gap: 15px;
-            margin-bottom: 25px;
+            gap: 12px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
         }
 
         .time-unit {
-            background: rgba(255, 255, 255, 0.8);
-            padding: 10px;
-            border-radius: 15px;
-            min-width: 70px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            background: rgba(255, 255, 255, 0.85);
+            padding: 12px 14px;
+            border-radius: 16px;
+            min-width: 68px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+            border: 1px solid rgba(255,255,255,0.9);
         }
 
         .time-val {
-            font-size: 1.8rem;
+            font-size: 1.75rem;
             font-weight: 700;
             color: var(--heart-color);
             display: block;
         }
 
         .time-label {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: #888;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        /* --- Message --- */
         .message {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 30px;
+            font-size: 1.05rem;
+            line-height: 1.65;
+            margin-bottom: 22px;
             font-style: italic;
             color: #6d4c41;
         }
 
+        .btn-fortune {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 24px;
+            background: linear-gradient(135deg, var(--accent-pink), #c2185b);
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 4px 16px rgba(233, 30, 99, 0.35);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-fortune:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4);
+        }
+
+        .fortune-card {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 16px;
+            border: 1px solid var(--accent-rose);
+            box-shadow: 0 6px 20px rgba(233, 30, 99, 0.1);
+            text-align: left;
+        }
+
+        .fortune-card.show { display: block; animation: fadeIn 0.4s ease; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
+
+        .fortune-title {
+            font-size: 0.85rem;
+            color: var(--accent-pink);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .fortune-text {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #5d4037;
+        }
+
         .finished-msg {
             display: none;
-            font-family: 'Pacifico', cursive;
-            font-size: 2rem;
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.8rem;
             color: var(--heart-color);
-            animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        @keyframes popIn {
-            0% { transform: scale(0); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-
-        /* --- SVG Illustration Area --- */
         .illustration-wrapper {
             width: 100%;
-            max-width: 400px;
-            height: 220px;
-            margin: 0 auto;
+            max-width: 380px;
+            height: 200px;
+            margin: 20px auto 0;
             position: relative;
         }
 
-        svg {
-            width: 100%;
-            height: 100%;
-            overflow: visible;
-        }
+        svg { width: 100%; height: 100%; overflow: visible; }
 
-        /* --- SVG Animations --- */
-        
-        /* 1. Floating Motion (Both) */
         .char-group {
             animation: float 4s ease-in-out infinite;
             transform-box: fill-box;
@@ -165,7 +190,24 @@
             50% { transform: translateY(-8px); }
         }
 
-        /* 2. Blinking Eyes */
+        .horse-wrapper {
+            animation: horseLean 8s ease-in-out infinite;
+            transform-origin: bottom right;
+        }
+        .tiger-wrapper {
+            animation: tigerLean 8s ease-in-out infinite;
+            transform-origin: bottom left;
+        }
+
+        @keyframes horseLean {
+            0%, 10%, 90%, 100% { transform: rotate(0deg) translateX(0); }
+            40%, 60% { transform: rotate(5deg) translateX(12px); }
+        }
+        @keyframes tigerLean {
+            0%, 10%, 90%, 100% { transform: rotate(0deg) translateX(0); }
+            40%, 60% { transform: rotate(-5deg) translateX(-12px); }
+        }
+
         .eye-lid {
             animation: blink 5s infinite;
             transform-origin: center;
@@ -174,63 +216,35 @@
         .tiger .eye-lid { animation-delay: 2.5s; }
 
         @keyframes blink {
-            0%, 96%, 100% { transform: scaleY(0); } /* Open */
-            98% { transform: scaleY(1); } /* Closed */
+            0%, 96%, 100% { transform: scaleY(0); }
+            98% { transform: scaleY(1); }
         }
 
-        /* 3. Cheek Touch (The Affection Gesture) */
-        /* We move the group wrappers towards center */
-        .horse-wrapper {
-            animation: horseLean 8s ease-in-out infinite;
-            transform-origin: bottom right;
-        }
-        
-        .tiger-wrapper {
-            animation: tigerLean 8s ease-in-out infinite;
-            transform-origin: bottom left;
-        }
-
-        @keyframes horseLean {
-            0%, 10%, 90%, 100% { transform: rotate(0deg) translateX(0); }
-            40%, 60% { transform: rotate(5deg) translateX(15px); } /* Lean in */
-        }
-
-        @keyframes tigerLean {
-            0%, 10%, 90%, 100% { transform: rotate(0deg) translateX(0); }
-            40%, 60% { transform: rotate(-5deg) translateX(-15px); } /* Lean in */
-        }
-
-        /* 4. Blushing gets deeper on touch */
-        .cheeks {
-            animation: blushDeep 8s ease-in-out infinite;
-        }
+        .cheeks { animation: blushDeep 8s ease-in-out infinite; }
         @keyframes blushDeep {
             0%, 10%, 90%, 100% { opacity: 0.3; }
             40%, 60% { opacity: 0.7; }
         }
 
-        /* 5. Hearts popping up between them */
         .love-heart {
             opacity: 0;
             animation: heartPop 8s linear infinite;
             transform-origin: center;
             transform-box: fill-box;
         }
-        
         @keyframes heartPop {
             0%, 35% { opacity: 0; transform: translateY(0) scale(0.5); }
-            45% { opacity: 1; transform: translateY(-20px) scale(1); }
-            60% { opacity: 1; transform: translateY(-40px) scale(1); }
-            70% { opacity: 0; transform: translateY(-50px) scale(0.8); }
+            45% { opacity: 1; transform: translateY(-18px) scale(1); }
+            60% { opacity: 1; transform: translateY(-36px) scale(1); }
+            70% { opacity: 0; transform: translateY(-48px) scale(0.8); }
             100% { opacity: 0; }
         }
 
-        /* Responsive adjustments */
         @media (max-width: 480px) {
             h1 { font-size: 2rem; }
-            .time-unit { min-width: 55px; padding: 8px; }
-            .time-val { font-size: 1.4rem; }
-            .illustration-wrapper { height: 180px; }
+            .time-unit { min-width: 58px; padding: 10px; }
+            .time-val { font-size: 1.45rem; }
+            .illustration-wrapper { height: 170px; }
         }
     </style>
 </head>
@@ -260,140 +274,86 @@
             </div>
         </div>
 
-        <div id="final-message" class="finished-msg">
-            Món quà đã sẵn sàng 💝
-        </div>
+        <div id="final-message" class="finished-msg">Món quà đã sẵn sàng 💝</div>
 
         <p class="message">
             "Anh đang âm thầm chuẩn bị một món quà nhỏ dành riêng cho vợ yêu.<br>
             Dù có chuyện gì đi nữa, anh vẫn luôn tin tưởng em tuyệt đối.<br>
             Yêu thương Phương rất nhiều."
         </p>
+
+        <button type="button" class="btn-fortune" id="btnFortune">Xem vận hôm nay</button>
+        <div class="fortune-card" id="fortuneCard">
+            <div class="fortune-title">Vận hôm nay – 8/10/1998 (Nữ)</div>
+            <div class="fortune-text" id="fortuneText"></div>
+        </div>
     </div>
 
     <div class="illustration-wrapper">
         <svg viewBox="0 0 300 160" xmlns="http://www.w3.org/2000/svg">
-            <!-- Center Love Hearts (Animation) -->
             <g class="love-hearts">
                 <path class="love-heart" d="M150 70 q5 -10 10 -5 t-5 10 t-10 10 t-10 -10 t-5 -10 t10 -5" fill="#ff6b6b" />
                 <path class="love-heart" style="animation-delay: 0.2s; transform: translate(10px, -10px)" d="M150 60 q3 -6 6 -3 t-3 6 t-6 6 t-6 -6 t-3 -6 t6 -3" fill="#ff8fa3" />
             </g>
-
-            <!-- HORSE (Left Side) -->
             <g class="horse-wrapper" transform="translate(60, 80)">
                 <g class="char-group horse">
-                    <!-- Tail -->
                     <path d="M-30 40 q-10 10 -5 20" stroke="#d2b48c" stroke-width="4" fill="none" stroke-linecap="round"/>
-                    
-                    <!-- Body -->
                     <path d="M-25 60 q-5 -40 25 -50 q30 0 35 50 z" fill="#fdf5e6" stroke="#5d4037" stroke-width="2"/>
-                    
-                    <!-- Back Leg -->
                     <path d="M-10 60 l0 15" stroke="#5d4037" stroke-width="2" stroke-linecap="round"/>
-                    
-                    <!-- Front Leg (Raised Shyly) -->
                     <path d="M20 50 q10 -5 15 5" stroke="#5d4037" stroke-width="2" stroke-linecap="round" fill="none"/>
-
-                    <!-- Head Group -->
                     <g transform="translate(10, -10)">
-                        <!-- Ears -->
                         <ellipse cx="-10" cy="-15" rx="5" ry="12" fill="#fdf5e6" stroke="#5d4037" stroke-width="2" transform="rotate(-20)"/>
                         <ellipse cx="15" cy="-15" rx="5" ry="12" fill="#fdf5e6" stroke="#5d4037" stroke-width="2" transform="rotate(20)"/>
-                        
-                        <!-- Mane -->
                         <path d="M-5 -25 q5 -10 15 0 q5 5 2 15" fill="#d2b48c" stroke="#5d4037" stroke-width="1"/>
-
-                        <!-- Face Base -->
                         <rect x="-18" y="-20" width="45" height="50" rx="20" ry="20" fill="#fdf5e6" stroke="#5d4037" stroke-width="2"/>
-                        
-                        <!-- Snout -->
                         <ellipse cx="5" cy="18" rx="12" ry="8" fill="#fff" opacity="0.6"/>
                         <circle cx="2" cy="16" r="1.5" fill="#5d4037"/>
                         <circle cx="8" cy="16" r="1.5" fill="#5d4037"/>
-
-                        <!-- Eyes -->
                         <circle cx="-5" cy="0" r="3" fill="#5d4037"/>
                         <circle cx="15" cy="0" r="3" fill="#5d4037"/>
-                        
-                        <!-- Eyelids (Blink Animation) -->
                         <rect class="eye-lid" x="-9" y="-4" width="8" height="8" fill="#fdf5e6" />
                         <rect class="eye-lid" x="11" y="-4" width="8" height="8" fill="#fdf5e6" />
-
-                        <!-- Cheeks (Blush) -->
                         <ellipse class="cheeks" cx="-8" cy="8" rx="4" ry="2" fill="#ff8fa3" opacity="0.3"/>
                         <ellipse class="cheeks" cx="18" cy="8" rx="4" ry="2" fill="#ff8fa3" opacity="0.3"/>
-
-                        <!-- Shy Smile -->
                         <path d="M2 22 q3 3 6 0" fill="none" stroke="#5d4037" stroke-width="1.5" stroke-linecap="round"/>
-                        
-                        <!-- Small Heart on Chest -->
                         <path d="M0 45 q2.5 -5 5 -2.5 t-2.5 5 t-5 5 t-5 -5 t-2.5 -5 t5 2.5" fill="#ff8fa3" transform="scale(0.8)"/>
                     </g>
                 </g>
             </g>
-
-            <!-- TIGER (Right Side) -->
             <g class="tiger-wrapper" transform="translate(240, 80)">
                 <g class="char-group tiger">
-                    <!-- Tail -->
                     <path d="M30 50 q15 -10 10 -20" stroke="#ffdab9" stroke-width="6" fill="none" stroke-linecap="round"/>
                     <path d="M30 50 q15 -10 10 -20" stroke="#8d6e63" stroke-width="2" fill="none" stroke-linecap="round" stroke-dasharray="2 4"/>
-
-                    <!-- Body -->
                     <path d="M-30 60 q5 -45 35 -45 q25 0 25 45 z" fill="#ffdab9" stroke="#5d4037" stroke-width="2"/>
-                    <!-- Stripes Body -->
                     <path d="M-15 30 l5 10" stroke="#8d6e63" stroke-width="3" stroke-linecap="round"/>
                     <path d="M0 25 l0 10" stroke="#8d6e63" stroke-width="3" stroke-linecap="round"/>
                     <path d="M15 30 l-5 10" stroke="#8d6e63" stroke-width="3" stroke-linecap="round"/>
-
-                    <!-- Feet -->
                     <ellipse cx="-15" cy="60" rx="8" ry="6" fill="#ffdab9" stroke="#5d4037" stroke-width="2"/>
                     <ellipse cx="15" cy="60" rx="8" ry="6" fill="#ffdab9" stroke="#5d4037" stroke-width="2"/>
-
-                    <!-- Head Group -->
                     <g transform="translate(0, -15)">
-                        <!-- Ears -->
                         <circle cx="-18" cy="-10" r="8" fill="#ffdab9" stroke="#5d4037" stroke-width="2"/>
                         <circle cx="18" cy="-10" r="8" fill="#ffdab9" stroke="#5d4037" stroke-width="2"/>
                         <circle cx="-18" cy="-10" r="4" fill="#8d6e63" opacity="0.3"/>
                         <circle cx="18" cy="-10" r="4" fill="#8d6e63" opacity="0.3"/>
-
-                        <!-- Face Base -->
                         <ellipse cx="0" cy="0" rx="25" ry="22" fill="#ffdab9" stroke="#5d4037" stroke-width="2"/>
-
-                        <!-- Stripes Head -->
                         <path d="M0 -22 l0 8" stroke="#8d6e63" stroke-width="3" stroke-linecap="round"/>
                         <path d="M-22 0 l5 0" stroke="#8d6e63" stroke-width="3" stroke-linecap="round"/>
                         <path d="M22 0 l-5 0" stroke="#8d6e63" stroke-width="3" stroke-linecap="round"/>
-
-                        <!-- Eyes -->
                         <circle cx="-10" cy="2" r="3.5" fill="#5d4037"/>
                         <circle cx="10" cy="2" r="3.5" fill="#5d4037"/>
-                        
-                        <!-- Eye Sparkle -->
                         <circle cx="-11" cy="1" r="1" fill="white"/>
                         <circle cx="9" cy="1" r="1" fill="white"/>
-
-                        <!-- Eyelids (Blink) -->
                         <rect class="eye-lid" x="-14" y="-3" width="8" height="8" fill="#ffdab9" />
                         <rect class="eye-lid" x="6" y="-3" width="8" height="8" fill="#ffdab9" />
-
-                        <!-- Snout Area -->
                         <ellipse cx="0" cy="12" rx="10" ry="8" fill="white"/>
                         <path d="M-3 12 q3 3 6 0" fill="none" stroke="#5d4037" stroke-width="1.5" stroke-linecap="round"/>
                         <circle cx="0" cy="9" r="2" fill="#5d4037"/>
-
-                        <!-- Whiskers -->
                         <path d="M-15 12 l-8 -2" stroke="#5d4037" stroke-width="1" opacity="0.5"/>
                         <path d="M-15 15 l-8 2" stroke="#5d4037" stroke-width="1" opacity="0.5"/>
                         <path d="M15 12 l8 -2" stroke="#5d4037" stroke-width="1" opacity="0.5"/>
                         <path d="M15 15 l8 2" stroke="#5d4037" stroke-width="1" opacity="0.5"/>
-
-                        <!-- Cheeks (Blush) -->
                         <ellipse class="cheeks" cx="-16" cy="6" rx="5" ry="3" fill="#ff8fa3" opacity="0.3"/>
                         <ellipse class="cheeks" cx="16" cy="6" rx="5" ry="3" fill="#ff8fa3" opacity="0.3"/>
-
-                        <!-- Heart Above Head -->
                         <path d="M0 -30 q2 -4 4 -2 t-2 4 t-4 4 t-4 -4 t-2 -4 t4 -2" fill="#ff8fa3" opacity="0.8">
                             <animate attributeName="transform" values="0,0; 0,-5; 0,0" dur="2s" repeatCount="indefinite"/>
                         </path>
@@ -404,72 +364,108 @@
     </div>
 
     <script>
-        // --- 1. Background Heart Generation ---
-        function createHearts() {
-            const container = document.getElementById('bgHearts');
-            const heartSymbols = ['❤', '💖', '💕', '🌸'];
-            
-            setInterval(() => {
-                const heart = document.createElement('div');
-                heart.classList.add('bg-heart');
-                heart.innerText = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
-                heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.animationDuration = Math.random() * 3 + 4 + 's'; // 4-7 seconds
-                heart.style.fontSize = Math.random() * 20 + 10 + 'px';
-                
-                container.appendChild(heart);
+        (function () {
 
-                // Cleanup
-                setTimeout(() => {
-                    heart.remove();
-                }, 7000);
-            }, 500);
-        }
+            var PHRASES = [
+                "Hôm nay sao chiếu mệnh tốt, tình cảm và công việc đều thuận lợi. Hãy mỉm cười và tin vào những điều tốt đẹp.",
+                "Ngày hôm nay mang đến năng lượng tích cực. Những người thương yêu sẽ ở bên bạn. Cứ thoải mái và vui vẻ.",
+                "Vận may đang mỉm cười với bạn. Hãy mở lòng đón nhận những cơ hội nhỏ trong ngày.",
+                "Tình duyên và sự nghiệp đều có dấu hiệu khởi sắc. Tin vào bản thân và vào tình yêu.",
+                "Hôm nay là ngày để nuôi dưỡng những mối quan hệ thân thương. Một lời nói ngọt sẽ mang lại niềm vui.",
+                "Sức khỏe ổn định, tinh thần thoải mái. Hãy dành chút thời gian cho bản thân và người thương.",
+                "Vận tình cảm rất đẹp. Những điều bất ngờ ấm áp có thể đến với bạn trong ngày hôm nay.",
+                "Ngày này thích hợp để bày tỏ và lắng nghe. Sự chân thành sẽ được đền đáp.",
+                "Công việc và gia đạo đều hài hòa. Hãy biết ơn và tận hưởng từng khoảnh khắc.",
+                "Hôm nay bạn tỏa sáng trong mắt người thương. Tự tin và dịu dàng sẽ mang lại may mắn.",
+                "Số đào hoa nhẹ nhàng. Tình cảm được nuôi dưỡng từ những việc nhỏ hàng ngày.",
+                "Ngày tốt để gạt bỏ muộn phiền và hướng về những điều tích cực. Yêu thương bản thân trước.",
+                "Vận hôm nay ổn định và ấm áp. Gia đình và bạn bè sẽ là điểm tựa vững chắc.",
+                "Những quyết định từ trái tim trong ngày này thường đúng đắn. Hãy tin vào cảm xúc của mình.",
+                "Năng lượng yêu thương lan tỏa. Một ngày đẹp để nói lời yêu thương và quan tâm.",
+                "Sự kiên nhẫn và dịu dàng của bạn sẽ được ghi nhận. Cứ bình tâm và rộng lượng.",
+                "Hôm nay là ngày của sự hòa hợp. Tránh tranh cãi, ưu tiên đối thoại và thấu hiểu.",
+                "Tài lộc và tình cảm đều có dấu hiệu tốt. Biết chia sẻ sẽ nhận lại nhiều hơn.",
+                "Ngày này mang lại cảm giác bình yên. Hãy tận dụng để nghỉ ngơi và gần gũi người thương.",
+                "Vận nữ mệnh hôm nay khá thuận. Tự tin vào bản thân và đừng ngại thể hiện tình cảm."
+            ];
 
-        // --- 2. Countdown Logic (72 Hours) ---
-        function startCountdown() {
-            // Check local storage for existing end time to persist across reloads
-            let endTime = localStorage.getItem('phuongGiftTimer');
-            const duration = 72 * 60 * 60 * 1000; // 72 hours in ms
-
-            if (!endTime) {
-                // If no timer exists, start one now
-                const now = new Date().getTime();
-                endTime = now + duration;
-                localStorage.setItem('phuongGiftTimer', endTime);
+            function getDayIndex() {
+                var d = new Date();
+                var start = new Date(d.getFullYear(), 0, 0);
+                var diff = d - start;
+                var oneDay = 24 * 60 * 60 * 1000;
+                return Math.floor(diff / oneDay);
             }
 
-            const timerInterval = setInterval(() => {
-                const now = new Date().getTime();
-                const distance = endTime - now;
+            function getTodayPhrase() {
+                var idx = getDayIndex() % PHRASES.length;
+                return PHRASES[idx];
+            }
 
-                if (distance < 0) {
-                    clearInterval(timerInterval);
-                    document.getElementById('countdown').style.display = 'none';
-                    document.getElementById('final-message').style.display = 'block';
-                    // Optional: Clear storage so it resets if you want, 
-                    // or keep it to show message forever. keeping it for now.
-                    return;
+            function createHearts() {
+                var container = document.getElementById('bgHearts');
+                var symbols = ['❤', '💖', '💕', '🌸'];
+                setInterval(function () {
+                    var el = document.createElement('div');
+                    el.className = 'bg-heart';
+                    el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+                    el.style.left = Math.random() * 100 + 'vw';
+                    el.style.animationDuration = (Math.random() * 3 + 4) + 's';
+                    el.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                    container.appendChild(el);
+                    setTimeout(function () { el.remove(); }, 7000);
+                }, 500);
+            }
+
+            var STORAGE_KEY = 'phuongGiftTimer';
+            var EIGHT_DAYS_MS = 8 * 24 * 60 * 60 * 1000;
+
+            function startCountdown() {
+                var endTime = localStorage.getItem(STORAGE_KEY);
+                if (!endTime) {
+                    endTime = Date.now() + EIGHT_DAYS_MS;
+                    localStorage.setItem(STORAGE_KEY, endTime);
                 }
+                endTime = parseInt(endTime, 10);
 
-                // Calculations
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                var countdownEl = document.getElementById('countdown');
+                var finalMsg = document.getElementById('final-message');
 
-                // Update UI with leading zeros
-                document.getElementById('days').innerText = days < 10 ? '0' + days : days;
-                document.getElementById('hours').innerText = hours < 10 ? '0' + hours : hours;
-                document.getElementById('minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
-                document.getElementById('seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
+                var tick = function () {
+                    var now = Date.now();
+                    var left = endTime - now;
 
-            }, 1000);
-        }
+                    if (left <= 0) {
+                        countdownEl.style.display = 'none';
+                        finalMsg.style.display = 'block';
+                        return;
+                    }
 
-        // Initialize
-        createHearts();
-        startCountdown();
+                    var d = Math.floor(left / (24 * 60 * 60 * 1000));
+                    var h = Math.floor((left % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000));
+                    var m = Math.floor((left % (60 * 60 * 1000)) / (60 * 1000));
+                    var s = Math.floor((left % (60 * 1000)) / 1000);
+
+                    document.getElementById('days').textContent = d < 10 ? '0' + d : d;
+                    document.getElementById('hours').textContent = h < 10 ? '0' + h : h;
+                    document.getElementById('minutes').textContent = m < 10 ? '0' + m : m;
+                    document.getElementById('seconds').textContent = s < 10 ? '0' + s : s;
+                };
+
+                tick();
+                setInterval(tick, 1000);
+            }
+
+            document.getElementById('btnFortune').addEventListener('click', function () {
+                var card = document.getElementById('fortuneCard');
+                document.getElementById('fortuneText').textContent = getTodayPhrase();
+                card.classList.add('show');
+            });
+
+            createHearts();
+            startCountdown();
+
+        })();
     </script>
 </body>
 </html>
